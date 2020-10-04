@@ -1,6 +1,8 @@
 # learn-vim
 So, I decided to learn vim :)
 
+## Great resources for learning vim.
+- https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/
 
 ## Shortcut
 - **i** to activate INSERT MODE.
