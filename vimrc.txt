@@ -1,4 +1,6 @@
+set guifont=JetBrainsMonoMedium\ 14
 set nocompatible        "Disable vi compatibility.
+set whichwrap+=<,>,[,],h,l  "https://stackoverflow.com/questions/2574027/automatically-go-to-next-line-in-vim
 set mouse=a             "Enable mouse in all mode.
 set number              "Show line numbers.
 filetype off            "Helps force plug-ins to load correctly when it is turned back on below.
