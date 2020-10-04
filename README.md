@@ -9,6 +9,16 @@ So, I decided to learn vim :)
 - hit **Esc** and,
   - **:wq or :q** to quite. or **:q!** quite without saving changes. it's easy. :D
   - **:w** to save.
+  - **:Ex** for openup file navigaion menu.
+- **Ctrl+w**
+  - +**Ctrl+w** to rotate beetwen windows.
+  - +**up, down, right, left** arrow key to navigate left-right up-down window.
+  - +**=** to resize windows equilly.
+  - +**v** split window vertically.
+  - +**s** split window horizontally.
+  - +**n** new window.
+-**vertical resize 30** to resize window verticaly.
+
 
 
 ### Navigation
