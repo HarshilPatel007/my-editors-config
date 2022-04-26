@@ -18,10 +18,10 @@ vim.g.maplocalleader = " "
 
 -- Normal Mode
 -- better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts) 
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<A-Left>", "<C-w>h", opts) 
+keymap("n", "<A-Down>", "<C-w>j", opts)
+keymap("n", "<A-Up>", "<C-w>k", opts)
+keymap("n", "<A-Right>", "<C-w>l", opts)
 
 keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- :Lexplore with 20 width '<cr> means Enter'
 
@@ -34,8 +34,11 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Visual Mode
 -- stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+keymap("v", "<S-Tab>", "<<", opts)
+keymap("v", "<Tab>", ">>", opts)
+
+keymap("v", "<S-Tab>", "<gv", opts)
+keymap("v", "<Tab>", ">gv", opts)
 
 -- move text up and down
 keymap("v", "<A-Down>", ":m .+1<CR>==", opts)
