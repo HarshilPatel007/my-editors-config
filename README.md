@@ -1,6 +1,8 @@
 # learn-vim
 So, I decided to learn vim :)
 
+##### note : this main branch will be remove in future. please use neovim branch instead.
+
 ## Great resources for learning vim.
 - https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/
 
