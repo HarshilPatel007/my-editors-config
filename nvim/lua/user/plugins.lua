@@ -36,8 +36,8 @@ return packer.startup(function(use)
     -- My plugins here
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "lunarvim/darkplus.nvim" -- color theme
-    -- use "neovim/nvim-lspconfig" -- enable LSP
-    -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use "neovim/nvim-lspconfig" -- enable LSP
+    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -47,6 +47,12 @@ return packer.startup(function(use)
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()
