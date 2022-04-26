@@ -51,3 +51,7 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-Down>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
+
+
+-- Telescope plugin
+keymap("n", "<leader>f", "<cmd>:Telescope find_files<cr>", opts)
