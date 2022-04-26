@@ -14,7 +14,13 @@ vim.g.completeopt="menu,menuone,noselect,noinsert"
     },
     window = {
       -- completion = cmp.config.window.bordered(),
+        completion = {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        },
       -- documentation = cmp.config.window.bordered(),
+        documentation = {
+            border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        }
     },
     mapping = cmp.mapping.preset.insert({
       ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -23,15 +29,15 @@ vim.g.completeopt="menu,menuone,noselect,noinsert"
       ['<C-e>'] = cmp.mapping.abort(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'vsnip' }, -- For vsnip users.
+    sources = {
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' }, -- For vsnip users.
+        { name = 'buffer' },
+        { name = "path" }
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
-    }, {
-      { name = 'buffer' },
-    })
+    }
   })
 
   -- Set configuration for specific filetype.
