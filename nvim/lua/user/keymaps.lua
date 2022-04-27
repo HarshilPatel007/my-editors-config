@@ -16,23 +16,47 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+
+
+--------------
 -- Normal Mode
--- better window navigation
+--------------
+
+-- window navigation
 keymap("n", "<A-Left>", "<C-w>h", opts) 
 keymap("n", "<A-Down>", "<C-w>j", opts)
 keymap("n", "<A-Up>", "<C-w>k", opts)
 keymap("n", "<A-Right>", "<C-w>l", opts)
 
+-- resize window with arrows
+keymap("n", "<C-Up>", ":resize +2<cr>", opts)
+keymap("n", "<C-Down>", ":resize -2<cr>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
+
+-- netrw directory listing
 keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- :Lexplore with 20 width '<cr> means Enter'
 
--- resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- move text up and down
+keymap("n", "<A-Down>", ":m .+1<cr>==", opts)
+keymap("n", "<A-Up>", ":m .-2<cr>==", opts)
+
+-- indentation
+keymap("n", "<S-Tab>", "<<", opts)
+keymap("n", "<Tab>", ">>", opts)
+
+-- Telescope plugin
+keymap("n", "<leader>f", "<cmd>:Telescope find_files<cr>", opts)
+
+---------------------
+-- End of Normal Mode
+---------------------
 
 
+--------------
 -- Visual Mode
+--------------
+
 -- stay in indent mode
 keymap("v", "<S-Tab>", "<<", opts)
 keymap("v", "<Tab>", ">>", opts)
@@ -41,17 +65,23 @@ keymap("v", "<S-Tab>", "<gv", opts)
 keymap("v", "<Tab>", ">gv", opts)
 
 -- move text up and down
-keymap("v", "<A-Down>", ":m .+1<CR>==", opts)
-keymap("v", "<A-Up>", ":m .-2<CR>==", opts)
+keymap("v", "<A-Down>", ":m '>+1<cr>gv=gv", opts)
+keymap("v", "<A-Up>", ":m '<-2<cr>gv=gv", opts)
 keymap("v", "p", '"_dP', opts)
 
+---------------------
+-- End of Visual Mode
+---------------------
+
+
+--------------------
 -- Visual Block Mode
+--------------------
+
 -- move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-Down>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "<A-Down>", ":m '>+1<cr>gv=gv", opts)
+keymap("x", "<A-Up>", ":m '<-2<cr>gv=gv", opts)
 
-
--- Telescope plugin
-keymap("n", "<leader>f", "<cmd>:Telescope find_files<cr>", opts)
+---------------------------
+-- End of Visual Block Mode
+---------------------------
