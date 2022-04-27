@@ -1,8 +1,8 @@
+-- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
 --   visual_block_mode = "x",
--- Modes
 --   term_mode = "t",
 --   command_mode = "c",
 
