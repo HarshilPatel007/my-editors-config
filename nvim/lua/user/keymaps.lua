@@ -1,8 +1,8 @@
--- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
 --   visual_block_mode = "x",
+-- Modes
 --   term_mode = "t",
 --   command_mode = "c",
 
@@ -36,11 +36,12 @@ keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 
 -- netrw directory listing
-keymap("n", "<leader>e", ":Lex 20<cr>", opts) -- :Lexplore with 20 width '<cr> means Enter'
+keymap("n", "<leader>e", ":Lex 20<cr>", opts)   -- open Netrw in the current working directory
+keymap("n", "<leader>w", ":Lex 20%:p:h<cr>", opts) -- open Netrw in the directory of the current file
 
 -- move text up and down
-keymap("n", "<A-Down>", ":m .+1<cr>==", opts)
-keymap("n", "<A-Up>", ":m .-2<cr>==", opts)
+-- keymap("n", "<A-Down>", ":m .+1<cr>==", opts)
+-- keymap("n", "<A-Up>", ":m .-2<cr>==", opts)
 
 -- indentation
 keymap("n", "<S-Tab>", "<<", opts)
