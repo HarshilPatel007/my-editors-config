@@ -1,13 +1,3 @@
-local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
-local keymap = vim.api.nvim_set_keymap
-
--- ("mode", "new keymap", "old keymap", "options")
--- remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -16,6 +6,17 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- keymap("mode", "new keymap", "old keymap", "options")
+
+
+local opts = { noremap = true, silent = true }
+local term_opts = { silent = true }
+local keymap = vim.api.nvim_set_keymap
+
+-- remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 
 --------------
@@ -57,10 +58,11 @@ keymap("n", "<leader>f", "<cmd>:Telescope find_files<cr>", opts)
 -- Visual Mode
 --------------
 
--- stay in indent mode
+-- indentation
 keymap("v", "<S-Tab>", "<<", opts)
 keymap("v", "<Tab>", ">>", opts)
 
+-- indentation with text selection
 keymap("v", "<S-Tab>", "<gv", opts)
 keymap("v", "<Tab>", ">gv", opts)
 
