@@ -20,6 +20,9 @@ vim.opt.hlsearch = true                     -- highlight all matches on previous
 vim.opt.ignorecase = true                   -- ignore case in search patterns
 vim.opt.showtabline = 2                     -- always show tabs
 vim.opt.termguicolors = true                -- set term gui colors
+vim.opt.laststatus = 3                      -- set the global statusline and remove statusline on each windows
+
+
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set iskeyword+=-"

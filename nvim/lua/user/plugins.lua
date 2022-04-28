@@ -44,15 +44,31 @@ return packer.startup(function(use)
     } -- treesitter syntax highliter
 
     use {
-        'nvim-telescope/telescope.nvim',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
+        "nvim-telescope/telescope.nvim",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    } -- telescope
 
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/nvim-cmp'
+    -- start of cmp plugins
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-cmdline"
+    use "hrsh7th/nvim-cmp"
+    -- end of cmp plugins
+    
+    use {
+        "numToStr/Comment.nvim",
+        config = function()
+            require('Comment').setup()
+        end
+    } -- for commenting support
+
+    use({
+        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        config = function()
+            require("lsp_lines").register_lsp_virtual_lines()
+        end,
+    }) -- show error lines https://github.com/ErichDonGubler/lsp_lines.nvim
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

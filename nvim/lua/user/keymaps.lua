@@ -88,3 +88,6 @@ keymap("x", "<A-Up>", ":m '<-2<cr>gv=gv", opts)
 ---------------------------
 -- End of Visual Block Mode
 ---------------------------
+--
+-- TODO: add all the lsp related keymaps which was not working in lspconf
+keymap("n", "<S-d>", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
