@@ -53,7 +53,7 @@ keymap("n", "<Tab>", ">>", opts)
 
 -- Telescope plugin
 keymap("n", "<leader>f", "<cmd>:Telescope find_files<cr>", opts)
-keymap("n","<leader>b",':lua require("telescope.builtin").buffers({ sort_mru = true, ignore_current_buffer = true })', opts)
+keymap("n","<leader>b",':lua require("telescope.builtin").buffers({ sort_mru = true, ignore_current_buffer = true })<cr>', opts)
 
 ---------------------
 -- End of Normal Mode
