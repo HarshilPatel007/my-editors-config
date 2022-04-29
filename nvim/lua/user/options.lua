@@ -21,8 +21,9 @@ vim.opt.ignorecase = true                   -- ignore case in search patterns
 vim.opt.showtabline = 2                     -- always show tabs
 vim.opt.termguicolors = true                -- set term gui colors
 vim.opt.laststatus = 3                      -- set the global statusline and remove statusline on each windows
-
-
-
+vim.opt.timeoutlen = 200                    -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.updatetime = 300                    -- faster completion
+vim.opt.scrolloff = 8                       -- minimal number of screen lines to keep above and below the cursor
+vim.opt.sidescrolloff = 8                   -- minimal number of screen lines to keep left and right of the cursor
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd "set iskeyword+=-"
