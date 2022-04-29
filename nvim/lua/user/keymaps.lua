@@ -36,8 +36,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 
 -- Navigate buffers
-keymap("n", "<S-Up>", ":bnext<CR>", opts)
-keymap("n", "<S-Down>", ":bprevious<CR>", opts)
+-- keymap("n", "<S-Up>", ":bnext<CR>", opts)
+-- keymap("n", "<S-Down>", ":bprevious<CR>", opts)
 
 -- netrw directory listing
 keymap("n", "<leader>e", ":Lex 20<cr>", opts)   -- open Netrw in the current working directory
@@ -53,6 +53,7 @@ keymap("n", "<Tab>", ">>", opts)
 
 -- Telescope plugin
 keymap("n", "<leader>f", "<cmd>:Telescope find_files<cr>", opts)
+keymap("n","<leader>b",':lua require("telescope.builtin").buffers({ sort_mru = true, ignore_current_buffer = true })', opts)
 
 ---------------------
 -- End of Normal Mode
