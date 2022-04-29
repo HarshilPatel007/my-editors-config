@@ -12,6 +12,7 @@ return {
         python = {
             analysis = {
                 autoSearchPaths = true,
+                autoImportCompletions = true,
                 useLibraryCodeForTypes = true,
                 typeCheckingMode = 'basic',  --  ["off", "basic", "strict"]:
                 diagnosticMode = 'workspace', -- ["openFilesOnly", "workspace"]
@@ -21,7 +22,11 @@ return {
                     reportMissingImports = 'error',
                     reportMissingModuleSource = 'error',
                 }
+            },
+            formatting = {
+                blackPath = "~/.local/bin/black",
+                provider = "black"
             }
-        }
+        } -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md, https://github.com/microsoft/pyright/blob/main/docs/settings.md
     }
 }
