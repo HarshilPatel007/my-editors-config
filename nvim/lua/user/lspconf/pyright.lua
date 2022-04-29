@@ -8,20 +8,20 @@ return {
     settings = {
         pyright = {
             disableOrganizeImports = false,
-		},
+        },
         python = {
             analysis = {
                 autoSearchPaths = true,
-				useLibraryCodeForTypes = true,
-				typeCheckingMode = 'basic',  --  ["off", "basic", "strict"]:
-				diagnosticMode = 'workspace', -- ["openFilesOnly", "workspace"]
-				diagnosticSeverityOverrides = {  -- "error," "warning," "information," "true," "false," or "none"
+                useLibraryCodeForTypes = true,
+                typeCheckingMode = 'basic',  --  ["off", "basic", "strict"]:
+                diagnosticMode = 'workspace', -- ["openFilesOnly", "workspace"]
+                diagnosticSeverityOverrides = {  -- "error," "warning," "information," "true," "false," or "none"
                     reportDuplicateImport = 'warning',
-					reportImportCycles = 'warning',
-					reportMissingImports = 'error',
-					reportMissingModuleSource = 'error',
-				}
-			}
-		}
+                    reportImportCycles = 'warning',
+                    reportMissingImports = 'error',
+                    reportMissingModuleSource = 'error',
+                }
+            }
+        }
     }
 }
