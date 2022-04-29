@@ -64,9 +64,23 @@ local function lsp_highlight_document(client)
     end
 end
 
---TODO: add keymaps to keymaps file
+local function lsp_keymaps(bufnr)
+    local opts = { noremap=true, silent=true }
+    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
-M.on_attach = function(client)
+    buf_set_keymap('n', '<C-d>', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    buf_set_keymap('n', '<C-r>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    buf_set_keymap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    buf_set_keymap('n', 'gf', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+end
+
+M.on_attach = function(client, buf)
+    lsp_keymaps(buf)
     lsp_highlight_document(client)
 end
 

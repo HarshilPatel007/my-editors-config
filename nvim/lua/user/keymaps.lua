@@ -24,7 +24,7 @@ vim.g.maplocalleader = " "
 --------------
 
 -- window navigation
-keymap("n", "<A-Left>", "<C-w>h", opts) 
+keymap("n", "<A-Left>", "<C-w>h", opts)
 keymap("n", "<A-Down>", "<C-w>j", opts)
 keymap("n", "<A-Up>", "<C-w>k", opts)
 keymap("n", "<A-Right>", "<C-w>l", opts)
@@ -34,6 +34,10 @@ keymap("n", "<C-Up>", ":resize +2<cr>", opts)
 keymap("n", "<C-Down>", ":resize -2<cr>", opts)
 keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
+
+-- Navigate buffers
+keymap("n", "<S-Up>", ":bnext<CR>", opts)
+keymap("n", "<S-Down>", ":bprevious<CR>", opts)
 
 -- netrw directory listing
 keymap("n", "<leader>e", ":Lex 20<cr>", opts)   -- open Netrw in the current working directory
@@ -88,6 +92,3 @@ keymap("x", "<A-Up>", ":m '<-2<cr>gv=gv", opts)
 ---------------------------
 -- End of Visual Block Mode
 ---------------------------
---
--- TODO: add all the lsp related keymaps which was not working in lspconf
-keymap("n", "<S-d>", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
