@@ -1,24 +1,20 @@
+-- UI config for lsp and cmp
+
 local M = {}
 
--- TODO: backfill this to template
 M.setup = function()
-    local signs = {
-        { name = "DiagnosticSignError", text = " " },
-        { name = "DiagnosticSignWarn", text = " " },
-        { name = "DiagnosticSignHint", text = " " },
-        { name = "DiagnosticSignInfo", text = " " },
-    }
+    local signs = { Error  = " ", Warn = " ", Hint = " ", Info = " " }
 
-    for _, sign in ipairs(signs) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+    for type, icon in pairs(signs) do
+        local highlight = "DiagnosticSign" .. type
+        vim.fn.sign_define(highlight, { text = icon, texthl = highlight, numhl = highlight })
     end
 
     local config = {
-        -- disable virtual text
-        virtual_text = false,
-        -- virtua_lines plugin
-        virtual_lines = true,
-        -- show signs
+        virtual_text = false, -- virtual diagnostics text
+        virtual_lines = {
+            prefix = '▎'
+        }, -- virtual_lines plugin (virtual diagnostics text on code line)
         signs = {
           active = signs,
         },
@@ -37,34 +33,40 @@ M.setup = function()
 
     vim.diagnostic.config(config)
 
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-    })
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-    })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 end
 
 local function lsp_highlight_document(client)
     -- Set autocommands conditional on server_capabilities
     if client.resolved_capabilities.document_highlight then
         vim.api.nvim_exec(
-            [[ 
-            augroup lsp_document_highlight 
-                autocmd! * <buffer>
-                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-            augroup END
+            [[
+                hi! DiagnosticVirtualTextError guifg=#db4b4b guibg=#2D202A gui=bold 
+                hi! DiagnosticVirtualTextWarn guifg=#e0af68 guibg=#2E2A2D gui=bold
+                hi! DiagnosticVirtualTextInfo guifg=#0db9d7 guibg=#192B38 gui=bold
+                hi! DiagnosticVirtualTextHint guifg=#1abc9c guibg=#1A2B32 gui=bold
             ]],
-                false
+            false
         )
+        local lsp_doc_hi = vim.api.nvim_create_augroup('lsp_document_highlight', { clear = true })
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+            group = lsp_doc_hi,
+            buffer = 0,
+            callback = function() vim.lsp.buf.document_highlight() end,
+        })
+        vim.api.nvim_create_autocmd('CursorMoved', {
+            group = lsp_doc_hi,
+            buffer = 0,
+            callback = function() vim.lsp.buf.clear_references() end,
+        })
     end
 end
 
 --TODO: add keymaps to keymaps file
 
-M.on_attach = function(client,bufnr)
+M.on_attach = function(client)
     lsp_highlight_document(client)
 end
 
