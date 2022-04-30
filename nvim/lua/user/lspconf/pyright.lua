@@ -22,11 +22,11 @@ return {
                     reportMissingImports = 'error',
                     reportMissingModuleSource = 'error',
                 }
-            },
-            formatting = {
-                blackPath = "~/.local/bin/black",
-                provider = "black"
             }
+--           formatting = {
+--                blackPath = "~/.local/bin/black",
+--                provider = "black"
+--            } -- current version of pyright for neovim doesn't supports formatting
         } -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md, https://github.com/microsoft/pyright/blob/main/docs/settings.md
     }
 }

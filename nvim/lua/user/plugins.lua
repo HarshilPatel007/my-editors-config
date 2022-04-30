@@ -70,6 +70,9 @@ return packer.startup(function(use)
         end,
     }) -- show error lines https://github.com/ErichDonGubler/lsp_lines.nvim
 
+    use "lukas-reineke/indent-blankline.nvim" -- show indentation guides to all lines
+
+
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end

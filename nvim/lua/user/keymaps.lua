@@ -55,6 +55,9 @@ keymap("n", "<Tab>", ">>", opts)
 keymap("n", "<leader>f", "<cmd>:Telescope find_files<cr>", opts)
 keymap("n","<leader>b",':lua require("telescope.builtin").buffers({ sort_mru = true, ignore_current_buffer = true })<cr>', opts)
 
+-- Pyright code formatting
+keymap("n","<C-f>","<cmd>:Black<cr>:PyrightOrganizeImports<cr>",opts)
+
 ---------------------
 -- End of Normal Mode
 ---------------------
