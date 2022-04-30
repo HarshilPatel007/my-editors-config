@@ -55,7 +55,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline"
     use "hrsh7th/nvim-cmp"
     -- end of cmp plugins
-    
+
     use {
         "numToStr/Comment.nvim",
         config = function()
@@ -71,6 +71,7 @@ return packer.startup(function(use)
     }) -- show error lines https://github.com/ErichDonGubler/lsp_lines.nvim
 
     use "lukas-reineke/indent-blankline.nvim" -- show indentation guides to all lines
+    use "jose-elias-alvarez/null-ls.nvim" -- for linting
 
 
     if PACKER_BOOTSTRAP then
