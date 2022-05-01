@@ -63,14 +63,14 @@ return packer.startup(function(use)
         end
     } -- for commenting support
 
-    use({
-        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-        config = function()
-            require("lsp_lines").register_lsp_virtual_lines()
-        end,
-    }) -- show error lines https://github.com/ErichDonGubler/lsp_lines.nvim
+--    use({
+--        "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+--        config = function()
+--           require("lsp_lines").register_lsp_virtual_lines()
+--        end,
+--    }) -- show error lines https://github.com/ErichDonGubler/lsp_lines.nvim
 
-    use "lukas-reineke/indent-blankline.nvim" -- show indentation guides to all lines
+    -- use "lukas-reineke/indent-blankline.nvim" -- show indentation guides to all lines
     use "jose-elias-alvarez/null-ls.nvim" -- for linting
 
 

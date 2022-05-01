@@ -12,9 +12,6 @@ M.setup = function()
 
     local config = {
         virtual_text = false, -- virtual diagnostics text
-        virtual_lines = {
-            prefix = '▎'
-        }, -- virtual_lines plugin (virtual diagnostics text on code line)
         signs = {
           active = signs,
         },
@@ -43,10 +40,10 @@ local function lsp_highlight_document(client)
     if client.resolved_capabilities.document_highlight then
         vim.api.nvim_exec(
             [[
-                hi! DiagnosticVirtualTextError guifg=#db4b4b guibg=#2D202A gui=bold 
-                hi! DiagnosticVirtualTextWarn guifg=#e0af68 guibg=#2E2A2D gui=bold
-                hi! DiagnosticVirtualTextInfo guifg=#0db9d7 guibg=#192B38 gui=bold
-                hi! DiagnosticVirtualTextHint guifg=#1abc9c guibg=#1A2B32 gui=bold
+                hi! DiagnosticError guifg=#db4b4b guibg=#2D202A gui=bold 
+                hi! DiagnosticWarn guifg=#e0af68 guibg=#2E2A2D gui=bold
+                hi! DiagnosticInfo guifg=#0db9d7 guibg=#192B38 gui=bold
+                hi! DiagnosticHint guifg=#1abc9c guibg=#1A2B32 gui=bold
             ]],
             false
         )
@@ -61,6 +58,21 @@ local function lsp_highlight_document(client)
             buffer = 0,
             callback = function() vim.lsp.buf.clear_references() end,
         })
+        -- TODO: make this works in Insert mode.
+        vim.api.nvim_create_autocmd("CursorHold", {
+            buffer = bufnr,
+            callback = function()
+            local opts = {
+                    focusable = false,
+                    close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+                    border = "rounded",
+                    source = "always",
+                    prefix = "",
+                    scope = "cursor",
+                }
+            vim.diagnostic.open_float(nil, opts)
+  end
+})
     end
 end
 
