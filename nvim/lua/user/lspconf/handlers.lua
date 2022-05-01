@@ -58,17 +58,17 @@ local function lsp_highlight_document(client)
             buffer = 0,
             callback = function() vim.lsp.buf.clear_references() end,
         })
-        -- TODO: make this works in Insert mode.
-        vim.api.nvim_create_autocmd("CursorHold", {
+        -- TODO: track null-ls for bug fix.
+        vim.api.nvim_create_autocmd({ "CursorHold","CursorHoldI" }, {
             buffer = bufnr,
             callback = function()
             local opts = {
                     focusable = false,
-                    close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
                     border = "rounded",
                     source = "always",
                     prefix = "",
                     scope = "cursor",
+                    style = "minimal"
                 }
             vim.diagnostic.open_float(nil, opts)
   end
