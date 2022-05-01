@@ -58,7 +58,6 @@ local function lsp_highlight_document(client)
             buffer = 0,
             callback = function() vim.lsp.buf.clear_references() end,
         })
-        -- TODO: track null-ls for bug fix.
         vim.api.nvim_create_autocmd({ "CursorHold","CursorHoldI" }, {
             buffer = bufnr,
             callback = function()
