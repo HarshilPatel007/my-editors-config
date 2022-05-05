@@ -42,6 +42,7 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     } -- treesitter syntax highliter
+    use "nvim-treesitter/playground" -- for creating treesitter based plugins
 
     use {
         "nvim-telescope/telescope.nvim",

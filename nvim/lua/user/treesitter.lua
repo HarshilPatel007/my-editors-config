@@ -18,5 +18,14 @@ ts_config.setup {
             "yaml"
         }
     },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = ",m",
+          node_incremental = ",tt",
+          scope_incremental = ",t",
+          node_decremental = ",tdg",
+        },
+    },
 }
 
