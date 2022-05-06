@@ -44,6 +44,4 @@ function GetModelFields()
     end
 end
 
-
-
 print(GetModelFields())

@@ -50,12 +50,15 @@ return packer.startup(function(use)
     } -- telescope
 
     -- start of cmp plugins
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/cmp-path"
-    use "hrsh7th/cmp-cmdline"
     use "hrsh7th/nvim-cmp"
-    -- end of cmp plugins
+    use "hrsh7th/cmp-path"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/cmp-cmdline"
+    use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/cmp-nvim-lsp"
+   -- end of cmp plugins
+
+    use "L3MON4D3/LuaSnip" -- for snipet support
 
     use {
         "numToStr/Comment.nvim",
@@ -65,6 +68,8 @@ return packer.startup(function(use)
     } -- for commenting support
 
     use "jose-elias-alvarez/null-ls.nvim" -- for linting
+
+    use "max-0406/autoclose.nvim" -- for auto close
 
 
     if PACKER_BOOTSTRAP then
