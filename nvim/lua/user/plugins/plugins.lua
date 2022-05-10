@@ -34,43 +34,92 @@ end
 return packer.startup(function(use)
 
     -- My plugins here
-    use "wbthomason/packer.nvim" -- Have packer manage itself
-    use "lunarvim/darkplus.nvim" -- color theme
+    use "wbthomason/packer.nvim" -- have packer manage itself
+    use "lunarvim/onedarker.nvim" -- color theme
+
+    -- start of LSP related plugins
     use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+    use {
+        "williamboman/nvim-lsp-installer",
+    } -- simple to use language server installer
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     } -- treesitter syntax highliter
     use "nvim-treesitter/playground" -- for creating treesitter based plugins
+    use {
+        "jose-elias-alvarez/null-ls.nvim",
+    } -- for linting
+    -- end of LSP related plugins
 
     use {
         "nvim-telescope/telescope.nvim",
         requires = { {"nvim-lua/plenary.nvim"} }
     } -- telescope
 
-    -- start of cmp plugins
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-path"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/cmp-cmdline"
-    use "hrsh7th/cmp-nvim-lua"
-    use "hrsh7th/cmp-nvim-lsp"
-   -- end of cmp plugins
-
-    use "L3MON4D3/LuaSnip" -- for snipet support
+    -- start of auto complete related plugins
+    use {
+        "hrsh7th/nvim-cmp"
+    }
+    use {
+        "hrsh7th/cmp-path",
+        after = "nvim-cmp",
+        event = "InsertEnter",
+    }
+    use {
+        "hrsh7th/cmp-buffer",
+        after = "nvim-cmp",
+        event = "InsertEnter",
+    }
+    use {
+        "hrsh7th/cmp-cmdline",
+        after = "nvim-cmp",
+    }
+    use {
+        "hrsh7th/cmp-nvim-lua",
+        after = "nvim-cmp",
+    }
+    use {
+        "hrsh7th/cmp-nvim-lsp"
+    }
+    use {
+        "L3MON4D3/LuaSnip",
+        after = "nvim-cmp",
+        event = "InsertEnter",
+    } -- for snipet support
+   -- end of auto complete related plugins
 
     use {
         "numToStr/Comment.nvim",
+        event = "InsertEnter",
         config = function()
             require('Comment').setup()
         end
     } -- for commenting support
 
-    use "jose-elias-alvarez/null-ls.nvim" -- for linting
+    use {
+        "max-0406/autoclose.nvim",
+        event = "InsertEnter",
+    } -- for auto close brackets
 
-    use "max-0406/autoclose.nvim" -- for auto close
-
+    use {
+        "kyazdani42/nvim-tree.lua",
+        cmd = {
+            "NvimTreeOpen",
+            "NvimTreeFocus",
+            "NvimTreeToggle",
+        },
+        config = function()
+            require("nvim-tree").setup()
+        end,
+    }
+    use {
+        "kyazdani42/nvim-web-devicons",
+      event = { "BufRead", "BufNewFile" },
+      config = function()
+        require("nvim-web-devicons").setup()
+      end,
+    }
 
     if PACKER_BOOTSTRAP then
         require("packer").sync()

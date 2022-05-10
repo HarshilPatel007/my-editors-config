@@ -39,9 +39,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 -- keymap("n", "<S-Up>", ":bnext<CR>", opts)
 -- keymap("n", "<S-Down>", ":bprevious<CR>", opts)
 
--- netrw directory listing
-keymap("n", "<leader>e", ":Lex 20<cr>", opts)   -- open Netrw in the current working directory
-keymap("n", "<leader>w", ":Lex 20%:p:h<cr>", opts) -- open Netrw in the directory of the current file
+-- NvimTree directory listing
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- move text up and down
 -- keymap("n", "<A-Down>", ":m .+1<cr>==", opts)
@@ -52,11 +51,17 @@ keymap("n", "<S-Tab>", "<<", opts)
 keymap("n", "<Tab>", ">>", opts)
 
 -- Telescope plugin
-keymap("n", "<leader>f", "<cmd>:Telescope find_files<cr>", opts)
-keymap("n","<leader>b",':lua require("telescope.builtin").buffers({ sort_mru = true, ignore_current_buffer = true })<cr>', opts)
+keymap("n", "<S-f>", "<cmd>:Telescope find_files<cr>", opts)
+keymap("n","<S-b>",'<cmd>:lua require("telescope.builtin").buffers({ sort_mru = true, ignore_current_buffer = true })<cr>', opts)
 
 -- Pyright code formatting
-keymap("n","<C-f>","<cmd>:Black<cr>:PyrightOrganizeImports<cr>",opts)
+keymap("n","<C-f>","<cmd>:Black<cr>:PyrightOrganizeImports<cr>", opts)
+
+
+-- Tab
+keymap("n", "<C-t>", "<cmd>:tabnew<cr>", opts)
+keymap("n", "tt", "<cmd>:tabnext<cr>", opts)
+keymap("n", "tp", "<cmd>:tabprev<cr>", opts)
 
 ---------------------
 -- End of Normal Mode

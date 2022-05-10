@@ -1,0 +1,76 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.020  000.020: --- NVIM STARTING ---
+000.393  000.374: locale set
+000.800  000.407: inits 1
+000.823  000.023: window checked
+000.829  000.005: parsing arguments
+004.027  003.198: expanding arguments
+004.066  000.040: inits 2
+004.701  000.634: init highlight
+004.703  000.003: waiting for UI
+006.152  001.448: done waiting for UI
+006.169  000.017: init screen for UI
+006.201  000.032: init default mappings
+006.246  000.045: init default autocommands
+007.365  000.102  000.102: sourcing /usr/share/nvim/runtime/ftplugin.vim
+007.530  000.052  000.052: sourcing /usr/share/nvim/runtime/indent.vim
+007.624  000.019  000.019: sourcing /usr/share/nvim/archlinux.vim
+007.630  000.056  000.036: sourcing /etc/xdg/nvim/sysinit.vim
+067.792  005.446  005.446: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/onedarker.nvim/colors/onedarker.vim
+067.811  060.147  054.701: sourcing /home/harshil/.config/nvim/init.lua
+067.824  001.221: sourcing vimrc file(s)
+068.068  000.112  000.112: sourcing /usr/share/nvim/runtime/filetype.lua
+075.347  000.030  000.030: sourcing /usr/share/vim/vimfiles/ftdetect/meson.vim
+075.541  007.446  007.416: sourcing /usr/share/nvim/runtime/filetype.vim
+075.773  000.089  000.089: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+075.933  000.341  000.252: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+076.854  000.021  000.021: sourcing /usr/share/nvim/runtime/plugin/gzip.vim
+076.887  000.014  000.014: sourcing /usr/share/nvim/runtime/plugin/health.vim
+077.049  000.145  000.145: sourcing /usr/share/nvim/runtime/plugin/man.vim
+077.083  000.016  000.016: sourcing /usr/share/nvim/runtime/plugin/matchit.vim
+077.263  000.163  000.163: sourcing /usr/share/nvim/runtime/plugin/matchparen.vim
+077.307  000.022  000.022: sourcing /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+077.499  000.020  000.020: sourcing /home/harshil/.local/share/nvim/rplugin.vim
+077.508  000.184  000.164: sourcing /usr/share/nvim/runtime/plugin/rplugin.vim
+077.641  000.107  000.107: sourcing /usr/share/nvim/runtime/plugin/shada.vim
+077.683  000.015  000.015: sourcing /usr/share/nvim/runtime/plugin/spellfile.vim
+077.727  000.020  000.020: sourcing /usr/share/nvim/runtime/plugin/tarPlugin.vim
+077.758  000.013  000.013: sourcing /usr/share/nvim/runtime/plugin/tohtml.vim
+077.797  000.021  000.021: sourcing /usr/share/nvim/runtime/plugin/tutor.vim
+077.835  000.020  000.020: sourcing /usr/share/nvim/runtime/plugin/zipPlugin.vim
+078.966  000.082  000.082: sourcing /usr/share/nvim/runtime/autoload/provider/pythonx.vim
+123.467  000.249  000.249: sourcing /usr/share/nvim/runtime/autoload/remote/host.vim
+123.605  044.810  044.479: sourcing /usr/share/nvim/runtime/autoload/provider/python3.vim
+123.721  045.789  000.979: sourcing /usr/share/vim/vimfiles/plugin/black.vim
+123.837  000.082  000.082: sourcing /usr/share/vim/vimfiles/plugin/devhelp.vim
+126.495  001.610  001.610: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+127.496  003.553  001.942: sourcing /home/harshil/.config/nvim/plugin/packer_compiled.lua
+127.764  001.856: loading rtp plugins
+128.151  000.099  000.099: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+128.366  000.135  000.135: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+128.581  000.093  000.093: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+131.172  002.436  002.436: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.lua
+131.674  000.311  000.311: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/playground/plugin/nvim-treesitter-playground.lua
+131.806  000.046  000.046: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+132.317  000.360  000.360: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.lua
+132.501  001.257: loading packages
+132.838  000.143  000.143: sourcing /home/harshil/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+133.197  000.275  000.275: sourcing /home/harshil/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+133.618  000.347  000.347: sourcing /home/harshil/.local/share/nvim/site/pack/packer/opt/cmp-cmdline/after/plugin/cmp_cmdline.lua
+133.624  000.358: loading after plugins
+133.644  000.019: inits 3
+136.781  003.137: reading ShaDa
+136.909  000.128: opening buffers
+136.913  000.004: BufEnter autocommands
+136.916  000.003: editing files in windows
+136.921  000.005: VimEnter autocommands
+136.925  000.004: UIEnter autocommands
+137.299  000.264  000.264: sourcing /usr/share/nvim/runtime/autoload/provider/clipboard.vim
+137.308  000.119: before starting main loop
+137.792  000.484: first screen update
+137.796  000.003: --- NVIM STARTED ---
