@@ -25,9 +25,12 @@ function GetModelCls()
         ) @cap_parent
     ]])
 
+    local tbl = {}
     for _, matches, _ in query:iter_matches(cls_node, 0) do
-        print(vim.treesitter.query.get_node_text(matches[1], 0))
+        local get_model_cls = vim.treesitter.query.get_node_text(matches[1], 0)
+        table.insert(tbl, get_model_cls)
     end
+    vim.cmd(string.format('let @+ = "%s"', table.concat(tbl, ",")))
 end
 
 
@@ -39,9 +42,12 @@ function GetModelFields()
         ) @cap_parent
     ]])
 
-    for _, matches, _ in query:iter_matches(cls_node, 0) do
-        print(vim.treesitter.query.get_node_text(matches[1], 0))
+    local tbl = {}
+    for _,matches, _ in query:iter_matches(cls_node, 0) do -- id, matches, metadata
+        local get_fields = vim.treesitter.query.get_node_text(matches[1], 0)
+        table.insert(tbl, get_fields)
     end
+    vim.cmd(string.format('let @+ = "%s"', table.concat(tbl, ",")))
 end
 
-print(GetModelFields())
+GetModelFields()
